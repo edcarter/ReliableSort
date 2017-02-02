@@ -18,7 +18,9 @@ public class DataGen
     				writer.println(randInt.toString());
 			}
 			writer.close();
-		} catch (IOException e) {	
+		} 
+		catch (IOException e) 
+		{	
 			System.out.format("Error when using PrintWriter, exception is: %s", e.getMessage());
 		}
 	}
