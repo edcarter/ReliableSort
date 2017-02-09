@@ -1,3 +1,8 @@
+all: java libinssort.so
+
+java:
+	javac *.java
+
 libinssort.so:
 	gcc -I$$JAVA_HOME/include -I$$JAVA_HOME/include/linux -shared -fpic -o libinssort.so MyInsertionSort.c
 
