@@ -16,7 +16,16 @@ JNIEXPORT jintArray JNICALL Java_MyInsertionSort_insertionsort
 		printf("Cannot obtain array from JVM\n");
 		exit(0);
 	}
-	for (int i = 0; i < len; i++) my_array[i] = len - i - 1;
+
+	for (int i = 1; i < len; i++) {
+		int j = i;
+		while (j > 0 && my_array[j-1] > my_array[j]) {
+			jint tmp = my_array[j];
+			my_array[j] = my_array[j-1];
+			my_array[j-1] = tmp;
+			j--;
+		}
+	}
 	
 	(*env)->ReleaseIntArrayElements(env, buf, my_array, 0); 
 	return buf;
