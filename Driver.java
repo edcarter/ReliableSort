@@ -1,19 +1,38 @@
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
+import java.lang.*;
 
 public class Driver
 {
 	static String insSortLibrary = "inssort";
+	static int watchdogTimeoutMs = 1000;
 
 	public static void main(String[] args) {
 
 		if (args.length != 1) {
-			System.out.println("Usage:\n java Driver [path_to_numbers]\n");
+			System.out.println("Usage:\n	java Driver [path_to_numbers]\n");
 			return;
 		}
 		int[] send_buf = readNumbers(args[0]);
+
+		MyHeapSort hs = new MyHeapSort(send_buf);
+		Timer t = new Timer();
+		Watchdog w = new Watchdog(hs);
+		t.schedule(w, watchdogTimeoutMs);
+		hs.start();
+		try { 
+			/* there is a slight possiblity of a race condition 
+			where the thread joins because it finished, but then it is 
+			stopped by the watchdog before we can cancel the timer */
+			hs.join();
+			t.cancel();
+
+			if (w.cancelled) {
+				System.out.println("timed out");
+			} else {
+				System.out.println("thread joined without cancellation");
+			}
+		} catch (InterruptedException ex) { }
 
 		for (int i : send_buf) System.out.println("send_buf = " + i);
 		MyInsertionSort is = new MyInsertionSort();
