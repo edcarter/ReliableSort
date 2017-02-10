@@ -1,23 +1,41 @@
-import java.util.Random;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.util.ArrayList;
 
 public class Driver
 {
-	static int BUF_SIZE = 10;
 	static String insSortLibrary = "inssort";
 
 	public static void main(String[] args) {
-		int[] send_buf = new int[BUF_SIZE];
-		int[] recv_buf;
-		Random r = new Random();
-		for (int i=0; i<BUF_SIZE; i++) {
-			send_buf[i] = r.nextInt();
-			System.out.println("send_buf["+i+"] = "+send_buf[i]);
+
+		if (args.length != 1) {
+			System.out.println("Usage:\n java Driver [path_to_numbers]\n");
+			return;
 		}
+		int[] send_buf = readNumbers(args[0]);
+
+		for (int i : send_buf) System.out.println("send_buf = " + i);
 		MyInsertionSort is = new MyInsertionSort();
 		System.loadLibrary(insSortLibrary);
-		recv_buf = is.insertionsort(send_buf);
-		for (int i=0; i<BUF_SIZE; i++) {
-			System.out.println("recv_buf["+i+"] = "+recv_buf[i]);
+		is.insertionsort(send_buf);
+		for (int i : send_buf) System.out.println("send_buf= " + i);
+	}
+
+	public static int[] readNumbers(String path) {
+		ArrayList<Integer> ints = new ArrayList<Integer>();
+		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+			for (String line; (line = br.readLine()) != null;) {
+				ints.add(Integer.parseInt(line));
+			}
+		} catch (IOException ex) {
+			System.out.println("Unable to read number from file, error is: " + ex.getMessage());
+		} catch (NumberFormatException ex) {
+			System.out.println("Unable to parse integer, error is: " + ex.getMessage());
 		}
+		int[] readInts = new int[ints.size()];
+		for (int i = 0; i < ints.size(); i++) readInts[i] = ints.get(i);
+		return readInts;
 	}
 }
+
