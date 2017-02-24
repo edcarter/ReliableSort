@@ -1,5 +1,6 @@
 import org.junit.Assert;
 
+import java.io.File;
 import java.util.Arrays;
 
 /**
@@ -8,11 +9,24 @@ import java.util.Arrays;
 public class DriverTest {
     @org.junit.Test
     public void sort() throws Exception {
-        FileHeapSort hs = new FileHeapSort(1000);
-        FileInsertionSort is = new FileInsertionSort(1000);
+        int size = 1000;
+        String testPath = "deleteme";
+
+        File f = new File(testPath);
+        if (f.isFile()) f.delete();
+
+        DataGen.main(new String[] {Integer.toString(size), testPath});
+
+        FileHeapSort hs = new FileHeapSort(1000, 0);
+        FileInsertionSort is = new FileInsertionSort(1000, 0);
         Driver d = new Driver(Arrays.asList(hs, is));
-        int[] result = d.sort("smalldata");
-        for (int i : result) System.out.println(i);
-        Assert.assertEquals(10, result.length);
+        int[] result = d.sort(testPath);
+        Assert.assertEquals(size, result.length);
+
+        int last = result[0];
+        for (int i = 0; i < size; i++) {
+            Assert.assertTrue(last <= result[i]);
+            last = result[i];
+        }
     }
 }

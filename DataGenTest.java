@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 
 /**
@@ -12,6 +13,10 @@ public class DataGenTest {
     public void main() throws Exception {
         int size = 1000;
         String testPath = "deleteme";
+
+        File f = new File(testPath);
+        if (f.isFile()) f.delete();
+
         DataGen.main(new String[] {Integer.toString(size), testPath});
 
         int count = 0;
@@ -23,5 +28,6 @@ public class DataGenTest {
             }
         }
         Assert.assertEquals(size, count);
+        f.delete();
     }
 }

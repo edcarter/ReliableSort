@@ -7,16 +7,18 @@ import java.util.Timer;
 public class FileHeapSort implements FileSorter
 {
 	private int timeoutMs;
+	private double hazard;
 
-	public FileHeapSort(int timeoutMs) {
+	FileHeapSort(int timeoutMs, double hazard) {
 		this.timeoutMs = timeoutMs;
+		this.hazard = hazard;
 	}
 
 	@Override
 	public int[] Sort(String filePath) throws LocalException {
 		int[] numbers = readNumbers(filePath);
 		Timer t = new Timer();
-		HeapSort hs = new HeapSort(numbers);
+		HeapSort hs = new HeapSort(numbers, hazard);
 		Watchdog w = new Watchdog(hs);
 		t.schedule(w, timeoutMs);
 		hs.start();
@@ -36,7 +38,7 @@ public class FileHeapSort implements FileSorter
 		}
 	}
 
-	public static int[] readNumbers(String path) {
+	private static int[] readNumbers(String path) {
 		ArrayList<Integer> ints = new ArrayList<Integer>();
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 			for (String line; (line = br.readLine()) != null;) {
@@ -56,10 +58,14 @@ public class FileHeapSort implements FileSorter
 	{
 		private int[] arry;
 		private boolean complete;
+		private double hazard;
+		private int memoryAcceses;
 
-		public HeapSort(int[] arry) {
+		HeapSort(int[] arry, double hazard) {
 			this.arry = arry;
-			complete = false;
+			this.hazard = hazard;
+			this.complete = false;
+			this.memoryAcceses = 0;
 		}
 
 		public void run() {
@@ -67,27 +73,27 @@ public class FileHeapSort implements FileSorter
 			complete = true;
 		}
 
-		public boolean completed() {
+		boolean completed() {
 			return this.complete;
 		}
 
-		public int[] getResult() {
+		int[] getResult() {
 			return this.arry;
 		}
 
-		/** the below heap sort algorithm was provided by:
-		 * http://algs4.cs.princeton.edu/24pq/Heap.java.html
-		 * Accessed 17 Feb 2017
+		/* the below heap sort algorithm was provided by:
+		  http://algs4.cs.princeton.edu/24pq/Heap.java.html
+		  Accessed 17 Feb 2017
 		 */
 
-		/**
-		 *  The {@code Heap} class provides a static methods for heapsorting
-		 *  an array.
-		 *  <p>
-		 *  For additional documentation, see <a href="http://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
-		 *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
-		 *
-		 *  @author Robert Sedgewick
+		/*
+		   The {@code Heap} class provides a static methods for heapsorting
+		   an array.
+		   <p>
+		   For additional documentation, see <a href="http://algs4.cs.princeton.edu/24pq">Section 2.4</a> of
+		   <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+
+		   @author Robert Sedgewick
 		 *  @author Kevin Wayne
 		 */
 
@@ -95,7 +101,7 @@ public class FileHeapSort implements FileSorter
 		 * Rearranges the array in ascending order, using the natural order.
 		 * @param pq the array to be sorted
 		 */
-		public void sort(int[] pq) {
+		void sort(int[] pq) {
 			while (true) {}
 /*			int n = pq.length;
 			for (int k = n/2; k >= 1; k--)

@@ -3,22 +3,24 @@ import java.util.Timer;
 public class FileInsertionSort implements FileSorter
 {
 	private int timeoutMs;
+	private double pFailure;
 	private static String insSortLibrary = "inssort";
 
-	public FileInsertionSort(int timeoutMs) {
+	public FileInsertionSort(int timeoutMs, double pFailure) {
 		this.timeoutMs = timeoutMs;
+		this.pFailure = pFailure;
 	}
 
 	@Override
 	public int[] Sort(String filePath) throws LocalException {
 		Timer t = new Timer();
-		InsertionSort is = new InsertionSort(filePath);
+		InsertionSort is = new InsertionSort(filePath, pFailure);
 		Watchdog w = new Watchdog(is);
 		System.loadLibrary(insSortLibrary);
 		t.schedule(w, timeoutMs);
 		is.start();
 		try {
-			/* there is a slight possiblity of a race condition
+			/* there is a slight possibility of a race condition
 			where the thread joins because it finished, but then it is
 			stopped by the watchdog before we can cancel the timer */
 			is.join();
@@ -37,16 +39,18 @@ public class FileInsertionSort implements FileSorter
 	{
 		private int[] arry;
 		private boolean complete;
+		private double pFailure;
 		private String path;
 
-		public InsertionSort(String path) {
+		public InsertionSort(String path, double pFailure) {
 			this.complete = false;
 			this.path = path;
+			this.pFailure = pFailure;
 		}
 
 		public void run() {
-			arry = sort(path);
-			complete = true;
+			arry = sort(path, pFailure);
+			complete = arry != null; // our native method returns null on failure
 		}
 
 		public boolean completed() {
@@ -57,6 +61,8 @@ public class FileInsertionSort implements FileSorter
 			return this.arry;
 		}
 
-		public native int[] sort(String path);
+		// sort a file at 'path' with a memory access failure rate of 'pFailure'
+		// returns sorted array on success and null on failure.
+		public native int[] sort(String path, double pFailure);
 	}
 }

@@ -4,6 +4,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <time.h>
+
 #include "FileInsertionSort_InsertionSort.h"
 
 
@@ -59,13 +61,33 @@ int CountLines(const char* path)
     return count;
 }
 
+// estimate if a failure occurred.
+// -1 will be returned if a simulated failure occurs, otherwise there was no failure
+int EstimateFailure(int memoryAccesses, double failureChance)
+{
+    time_t seed;
+    double myRand, hazard;
+
+    hazard = failureChance * memoryAccesses;
+    seed = time(NULL);
+    srand((unsigned int) seed);
+    myRand = ((double) rand()) / (double) RAND_MAX; // normalize our random number to between [0, 1]
+    if (0.5 <= myRand && myRand <= 0.5 + hazard) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
 JNIEXPORT jintArray JNICALL Java_FileInsertionSort_00024InsertionSort_sort
-  (JNIEnv * env, jobject o, jstring javaString)
+  (JNIEnv * env, jobject o, jstring javaString, jdouble pFailure)
 {
 	jsize len;
 	jint *nativeArray;
+	jint memoryAccesses;
 	jintArray result;
 	const char *nativeString = (*env)->GetStringUTFChars(env, javaString, 0);
+
     len = CountLines(nativeString);
     if (len < 0)
         goto CLEANUP;
@@ -76,18 +98,27 @@ JNIEXPORT jintArray JNICALL Java_FileInsertionSort_00024InsertionSort_sort
         goto CLEANUP;
 
     /* perform insertion sort now */
-	for (int i = 1; i < len; i++) {
-		int j = i;
-		while (j > 0 && nativeArray[j-1] > nativeArray[j]) {
-			jint tmp = nativeArray[j];
-			nativeArray[j] = nativeArray[j-1];
-			nativeArray[j-1] = tmp;
-			j--;
+    memoryAccesses = 0;
+	for (int i = 1; i < len; i++) {                            // 3 memory accesses
+		int j = i;                                             // 2 memory accesses
+		memoryAccesses += 5;                                   // 5 memory accesses per for loop
+
+		while (j > 0 && nativeArray[j-1] > nativeArray[j]) {   // 3 memory accesses
+			jint tmp = nativeArray[j];                         // 2 memory accesses
+			nativeArray[j] = nativeArray[j-1];                 // 2 memory accesses
+			nativeArray[j-1] = tmp;                            // 2 memory accesses
+			j--;                                               // 1 memory access
+			memoryAccesses += 10;                              // 10 memory accesses per while loop
 		}
 	}
-	result = (*env)->NewIntArray(env, len);
-	if (result != NULL)
-	    (*env)->SetIntArrayRegion(env, result, 0, len, nativeArray);
+
+    if (EstimateFailure(memoryAccesses, pFailure) == -1) {
+        result = NULL;
+    } else {
+    	result = (*env)->NewIntArray(env, len);
+    	if (result != NULL)
+    	    (*env)->SetIntArrayRegion(env, result, 0, len, nativeArray);
+    }
 
     CLEANUP:
     if (nativeString != NULL)
