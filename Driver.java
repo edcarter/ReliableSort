@@ -1,7 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Driver
@@ -29,7 +25,7 @@ public class Driver
 
 	// check that sorted ints have the correct length, order, and checksum
 	private boolean adjudicate(int[] sorted, String numbersPath) {
-		int[] numbers = readNumbers(numbersPath);
+		int[] numbers = FileToArray.FromFile(numbersPath);
 		int sum1 = 0;
 		int sum2 = 0;
 		int last = sorted[0];
@@ -42,23 +38,6 @@ public class Driver
 		}
 		if (sum1 != sum2) return false; // different check sums
 		return true;
-	}
-
-	@SuppressWarnings("Duplicates")
-	private static int[] readNumbers(String path) {
-		ArrayList<Integer> ints = new ArrayList<Integer>();
-		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-			for (String line; (line = br.readLine()) != null;) {
-				ints.add(Integer.parseInt(line));
-			}
-		} catch (IOException ex) {
-			System.out.println("Unable to read number from file, error is: " + ex.getMessage());
-		} catch (NumberFormatException ex) {
-			System.out.println("Unable to parse integer, error is: " + ex.getMessage());
-		}
-		int[] readInts = new int[ints.size()];
-		for (int i = 0; i < ints.size(); i++) readInts[i] = ints.get(i);
-		return readInts;
 	}
 }
 
