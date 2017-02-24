@@ -17,7 +17,6 @@ public class Driver
 					throw new LocalException("variant failed adjudicator");
 				} else {
 					passed = true;
-					System.out.println("passed: " + variant.getClass().getSimpleName());
 					break;
 				}
 			} catch (LocalException ex) {
