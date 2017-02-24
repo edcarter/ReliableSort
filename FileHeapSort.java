@@ -3,18 +3,18 @@ import java.util.Timer;
 public class FileHeapSort implements FileSorter
 {
 	private int timeoutMs;
-	private double hazard;
+	private double pFailure;
 
-	FileHeapSort(int timeoutMs, double hazard) {
+	FileHeapSort(int timeoutMs, double pFailure) {
 		this.timeoutMs = timeoutMs;
-		this.hazard = hazard;
+		this.pFailure = pFailure;
 	}
 
 	@Override
-	public int[] Sort(String filePath) throws LocalException {
-		int[] numbers = FileToArray.FromFile(filePath);
+	public void Sort(String unsortedPath, String sortedPath) throws LocalException {
+		int[] numbers = FileToArray.FromFile(unsortedPath);
 		Timer t = new Timer();
-		HeapSort hs = new HeapSort(numbers, hazard);
+		HeapSort hs = new HeapSort(numbers, pFailure);
 		Watchdog w = new Watchdog(hs);
 		t.schedule(w, timeoutMs);
 		hs.start();
@@ -27,38 +27,32 @@ public class FileHeapSort implements FileSorter
 		} catch (InterruptedException ex) {
 			throw new LocalException("caught thread interrupted exception");
 		}
-		if (hs.completed()) {
-			return hs.getResult();
-		} else {
+		if (!hs.completed())
 			throw new LocalException("HeapSort implementation failed");
-		}
 	}
 
 	class HeapSort extends Thread
 	{
 		private int[] arry;
 		private boolean complete;
-		private double hazard;
+		private double pFailure;
 		private int memoryAcceses;
 
-		HeapSort(int[] arry, double hazard) {
+		HeapSort(int[] arry, double pFailure) {
 			this.arry = arry;
-			this.hazard = hazard;
+			this.pFailure = pFailure;
 			this.complete = false;
 			this.memoryAcceses = 0;
 		}
 
 		public void run() {
 			sort(arry);
+			// todo write arry to file
 			complete = true;
 		}
 
 		boolean completed() {
 			return this.complete;
-		}
-
-		int[] getResult() {
-			return this.arry;
 		}
 
 		/* the below heap sort algorithm was provided by:

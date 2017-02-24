@@ -10,17 +10,22 @@ public class DriverTest {
     @org.junit.Test
     public void sort() throws Exception {
         int size = 1000;
-        String testPath = "deleteme";
+        String unsortedPath = "unsorted";
+        String sortedPath = "sorted";
 
-        File f = new File(testPath);
-        if (f.isFile()) f.delete();
+        File f1 = new File(unsortedPath);
+        File f2 = new File(sortedPath);
+        if (f1.isFile()) f1.delete();
+        if (f2.isFile()) f2.delete();
 
-        DataGen.main(new String[] {Integer.toString(size), testPath});
+        DataGen.main(new String[] {Integer.toString(size), unsortedPath});
 
         FileHeapSort hs = new FileHeapSort(1000, 0);
         FileInsertionSort is = new FileInsertionSort(1000, 0);
         Driver d = new Driver(Arrays.asList(hs, is));
-        int[] result = d.sort(testPath);
+        d.sort(unsortedPath, sortedPath);
+
+        int[] result = FileToArray.FromFile(sortedPath);
         Assert.assertEquals(size, result.length);
 
         int last = result[0];

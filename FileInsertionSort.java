@@ -12,9 +12,9 @@ public class FileInsertionSort implements FileSorter
 	}
 
 	@Override
-	public int[] Sort(String filePath) throws LocalException {
+	public void Sort(String unsortedPath, String sortedPath) throws LocalException {
 		Timer t = new Timer();
-		InsertionSort is = new InsertionSort(filePath, pFailure);
+		InsertionSort is = new InsertionSort(unsortedPath, sortedPath, pFailure);
 		Watchdog w = new Watchdog(is);
 		System.loadLibrary(insSortLibrary);
 		t.schedule(w, timeoutMs);
@@ -28,41 +28,34 @@ public class FileInsertionSort implements FileSorter
 		} catch (InterruptedException ex) {
 			throw new LocalException("caught thread interrupted exception");
 		}
-		if (is.completed()) {
-			return is.getResult();
-		} else {
+		if (!is.completed())
 			throw new LocalException("InsertionSort implementation failed");
-		}
 	}
 
 	public class InsertionSort extends Thread
 	{
-		private int[] arry;
 		private boolean complete;
 		private double pFailure;
-		private String path;
+		private String unsortedPath;
+		private String sortedPath;
 
-		public InsertionSort(String path, double pFailure) {
+		public InsertionSort(String unsortedPath, String sortedPath, double pFailure) {
 			this.complete = false;
-			this.path = path;
+			this.unsortedPath = unsortedPath;
+			this.sortedPath = sortedPath;
 			this.pFailure = pFailure;
 		}
 
 		public void run() {
-			arry = sort(path, pFailure);
-			complete = arry != null; // our native method returns null on failure
+			complete = sort(unsortedPath, sortedPath, pFailure) != -1;
 		}
 
 		public boolean completed() {
 			return this.complete;
 		}
 
-		public int[] getResult() {
-			return this.arry;
-		}
-
 		// sort a file at 'path' with a memory access failure rate of 'pFailure'
-		// returns sorted array on success and null on failure.
-		public native int[] sort(String path, double pFailure);
+		// returns -1 on failure, otherwise success.
+		public native int sort(String unsortedPath, String sortedPath, double pFailure);
 	}
 }

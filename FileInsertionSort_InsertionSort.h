@@ -16,10 +16,10 @@ extern "C" {
 /*
  * Class:     FileInsertionSort_InsertionSort
  * Method:    sort
- * Signature: (Ljava/lang/String;D)[I
+ * Signature: (Ljava/lang/String;Ljava/lang/String;D)I
  */
-JNIEXPORT jintArray JNICALL Java_FileInsertionSort_00024InsertionSort_sort
-  (JNIEnv *, jobject, jstring, jdouble);
+JNIEXPORT jint JNICALL Java_FileInsertionSort_00024InsertionSort_sort
+  (JNIEnv *, jobject, jstring, jstring, jdouble);
 
 #ifdef __cplusplus
 }
