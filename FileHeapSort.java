@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Timer;
 
 public class FileHeapSort implements FileSorter
@@ -12,9 +13,8 @@ public class FileHeapSort implements FileSorter
 
 	@Override
 	public void Sort(String unsortedPath, String sortedPath) throws LocalException {
-		int[] numbers = FileToArray.FromFile(unsortedPath);
 		Timer t = new Timer();
-		HeapSort hs = new HeapSort(numbers, pFailure);
+		HeapSort hs = new HeapSort(unsortedPath, sortedPath, pFailure);
 		Watchdog w = new Watchdog(hs);
 		t.schedule(w, timeoutMs);
 		hs.start();
@@ -33,22 +33,35 @@ public class FileHeapSort implements FileSorter
 
 	class HeapSort extends Thread
 	{
-		private int[] arry;
 		private boolean complete;
+		private String unsortedPath;
+		private String sortedPath;
 		private double pFailure;
 		private int memoryAcceses;
 
-		HeapSort(int[] arry, double pFailure) {
-			this.arry = arry;
+		HeapSort(String unsortedPath, String sortedPath, double pFailure) {
+			this.unsortedPath = unsortedPath;
+			this.sortedPath = sortedPath;
 			this.pFailure = pFailure;
 			this.complete = false;
 			this.memoryAcceses = 0;
 		}
 
 		public void run() {
+			int[] arry = FileToArray.FromFile(unsortedPath);
 			sort(arry);
-			// todo write arry to file
-			complete = true;
+			FileToArray.ToFile(sortedPath, arry);
+			complete = !estimateFailure();
+		}
+
+		// estimate whether a pseudo hardware failure occurred or not.
+		// if true, we have a failure. otherwise there was no failure.
+		private boolean estimateFailure() {
+			Random rand = new Random();
+			double hazard = pFailure * memoryAcceses;
+			double myRand = rand.nextDouble();
+			if (0.5 <= myRand && myRand <= 0.5 + hazard) return true;
+			return false;
 		}
 
 		boolean completed() {
@@ -76,14 +89,17 @@ public class FileHeapSort implements FileSorter
 		 * @param pq the array to be sorted
 		 */
 		void sort(int[] pq) {
-			while (true) {}
-/*			int n = pq.length;
-			for (int k = n/2; k >= 1; k--)
-				sink(pq, k, n);
-			while (n > 1) {
-				exch(pq, 1, n--);
-				sink(pq, 1, n);
-			}*/
+			int n = pq.length;                // 2 memory accesses
+			memoryAcceses += 2;
+			for (int k = n/2; k >= 1; k--) {  // 2 memory accesses
+				sink(pq, k, n);               // 3 memory accesses
+				memoryAcceses += 5;
+			}
+			while (n > 1) {                   // 1 memory access
+				exch(pq, 1, n--);           // 2 memory accesses
+				sink(pq, 1, n);             // 2 memory accesses
+				memoryAcceses += 5;
+			}
 		}
 
 		/***************************************************************************
@@ -91,12 +107,13 @@ public class FileHeapSort implements FileSorter
 		 ***************************************************************************/
 
 		private void sink(int[] pq, int k, int n) {
-			while (2*k <= n) {
-				int j = 2*k;
-				if (j < n && less(pq, j, j+1)) j++;
-				if (!less(pq, k, j)) break;
-				exch(pq, k, j);
-				k = j;
+			while (2*k <= n) {                         // 2 memory accesses
+				int j = 2*k;                           // 2 memory accesses
+				if (j < n && less(pq, j, j+1)) j++;  // 4 memory accesses
+				if (!less(pq, k, j)) break;            // 3 memory accesses
+				exch(pq, k, j);                        // 3 memory accesses
+				k = j;                                 // 2 memory accesses
+				memoryAcceses += 16;
 			}
 		}
 
@@ -105,13 +122,15 @@ public class FileHeapSort implements FileSorter
 		 * Indices are "off-by-one" to support 1-based indexing.
 		 ***************************************************************************/
 		private boolean less(int[] pq, int i, int j) {
-			return pq[i-1] < pq[j-1];
+			memoryAcceses += 4;
+			return pq[i-1] < pq[j-1]; // 4 memory accesses
 		}
 
 		private void exch(int[] pq, int i, int j) {
-			int swap = pq[i-1];
-			pq[i-1] = pq[j-1];
-			pq[j-1] = swap;
+			int swap = pq[i-1]; // 3 memory accesses
+			pq[i-1] = pq[j-1];  // 3 memory accesses
+			pq[j-1] = swap;     // 3 memory accesses
+			memoryAcceses += 9;
 		}
 	}
 }

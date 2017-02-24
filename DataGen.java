@@ -1,6 +1,4 @@
 import java.util.Random;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class DataGen
 {
@@ -8,20 +6,9 @@ public class DataGen
 	{
 		int numValues = Integer.parseInt(args[0]);
 		String outputPath = args[1];
+		int[] nums = new int[numValues];
 		Random rand = new Random();
-		try 
-		{
-			PrintWriter writer = new PrintWriter(outputPath, "UTF-8");
-			for ( ; numValues > 0; numValues--)
-			{
-				Integer randInt = rand.nextInt();
-    				writer.println(randInt.toString());
-			}
-			writer.close();
-		} 
-		catch (IOException e) 
-		{	
-			System.out.format("Error when using PrintWriter, exception is: %s", e.getMessage());
-		}
+		for (int i = 0; i < numValues; i++) nums[i] = rand.nextInt();
+		FileToArray.ToFile(outputPath, nums);
 	}
 }

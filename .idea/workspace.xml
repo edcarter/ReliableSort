@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a481b721-563c-4c44-8881-3a3c826a06c0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DataGen.java" afterPath="$PROJECT_DIR$/DataGen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Driver.java" afterPath="$PROJECT_DIR$/Driver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DriverTest.java" afterPath="$PROJECT_DIR$/DriverTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileHeapSort.java" afterPath="$PROJECT_DIR$/FileHeapSort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileInsertionSort.java" afterPath="$PROJECT_DIR$/FileInsertionSort.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileInsertionSort_InsertionSort.h" afterPath="$PROJECT_DIR$/FileInsertionSort_InsertionSort.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileSorter.java" afterPath="$PROJECT_DIR$/FileSorter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyInsertionSort.c" afterPath="$PROJECT_DIR$/MyInsertionSort.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FileToArray.java" afterPath="$PROJECT_DIR$/FileToArray.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,21 +28,9 @@
       <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            <state relative-caret-position="756">
+              <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataGen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataGen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +38,7 @@
       <file leaf-file-name="FileInsertionSort_InsertionSort.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FileInsertionSort_InsertionSort.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
+            <state relative-caret-position="537">
               <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="69" />
               <folding />
             </state>
@@ -62,7 +48,7 @@
       <file leaf-file-name="DataGenTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataGenTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
+            <state relative-caret-position="468">
               <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -71,34 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileSorter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FileSorter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="3" column="29" lean-forward="true" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileToArray.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FileToArray.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#278#287#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DriverTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DriverTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+            <state relative-caret-position="162">
+              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -109,23 +72,12 @@
       <file leaf-file-name="FileHeapSort.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FileHeapSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileInsertionSort.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FileInsertionSort.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1548">
-              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="-801">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#1426#1427#0" expanded="true" />
-                <element signature="e#1492#1493#0" expanded="true" />
-                <element signature="e#1524#1525#0" expanded="true" />
-                <element signature="e#1553#1554#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1897#1898#0" expanded="true" />
+                <element signature="e#1926#1927#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,7 +86,7 @@
       <file leaf-file-name="MyInsertionSort.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyInsertionSort.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="1860">
               <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
               <folding />
             </state>
@@ -175,11 +127,12 @@
         <option value="$PROJECT_DIR$/FailureException.java" />
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/DataGenTest.java" />
-        <option value="$PROJECT_DIR$/FileToArray.java" />
         <option value="$PROJECT_DIR$/FileSorter.java" />
-        <option value="$PROJECT_DIR$/FileHeapSort.java" />
         <option value="$PROJECT_DIR$/FileInsertionSort.java" />
         <option value="$PROJECT_DIR$/MyInsertionSort.c" />
+        <option value="$PROJECT_DIR$/FileToArray.java" />
+        <option value="$PROJECT_DIR$/DataGen.java" />
+        <option value="$PROJECT_DIR$/FileHeapSort.java" />
         <option value="$PROJECT_DIR$/Driver.java" />
         <option value="$PROJECT_DIR$/DriverTest.java" />
       </list>
@@ -265,22 +218,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DriverTest">
-    <configuration default="false" name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="Driver" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="smalldata" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ReliableSort" />
-      <envs />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.DriverTest.sort_total_failure">
     <configuration default="false" name="DriverTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ReliableSort" />
@@ -302,14 +240,35 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="DataGenTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DataGenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ReliableSort" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DataGenTest" />
-      <option name="METHOD_NAME" value="main" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DriverTest.sort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="ReliableSort" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DriverTest" />
+      <option name="METHOD_NAME" value="sort" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -323,15 +282,36 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="DataGenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DriverTest.sort_insertionsort_failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ReliableSort" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DataGenTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="DriverTest" />
+      <option name="METHOD_NAME" value="sort_insertionsort_failure" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DriverTest.sort_total_failure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="ReliableSort" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DriverTest" />
+      <option name="METHOD_NAME" value="sort_total_failure" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -505,18 +485,20 @@
       <listeners />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.Driver" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.DriverTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DataGenTest.main" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DataGenTest" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.DriverTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DataGenTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DriverTest.sort" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DriverTest.sort_insertionsort_failure" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DriverTest.sort_total_failure" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DriverTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DataGenTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DataGenTest.main" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Driver" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DriverTest.sort_total_failure" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DriverTest.sort_insertionsort_failure" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DriverTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DriverTest.sort" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DataGenTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -534,7 +516,7 @@
       <option name="presentableId" value="Default" />
       <updated>1487376140721</updated>
       <workItem from="1487376143579" duration="15247000" />
-      <workItem from="1487721598603" duration="16333000" />
+      <workItem from="1487721598603" duration="20137000" />
     </task>
     <task id="LOCAL-00001" summary="Added filesorter interface. Worked a bit on the heap sort">
       <created>1487377637476</created>
@@ -547,43 +529,43 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataGenTest - 2017.02.21 at 20h 45m 53s.xml">
-      <configuration name="DataGenTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 41m 15s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataGenTest_main - 2017.02.21 at 20h 23m 58s.xml">
-      <configuration name="DataGenTest.main" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 41m 26s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataGenTest_main - 2017.02.21 at 20h 45m 42s.xml">
-      <configuration name="DataGenTest.main" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 41m 34s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.21 at 20h 57m 01s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 41m 42s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.21 at 21h 15m 47s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 41m 52s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.23 at 19h 48m 18s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 42m 42s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.23 at 19h 51m 46s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 42m 55s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.23 at 19h 52m 06s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 44m 40s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.23 at 20h 43m 18s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 44m 53s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DriverTest - 2017.02.23 at 20h 45m 09s.xml">
-      <configuration name="DriverTest" configurationId="JUnit" />
+    <history-entry file="DriverTest_sort_total_failure - 2017.02.23 at 21h 45m 03s.xml">
+      <configuration name="DriverTest.sort_total_failure" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31580000" />
+    <option name="totallyTimeSpent" value="35384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="0" width="3204" height="1746" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -591,11 +573,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28801546" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28801546" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925257" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -618,13 +600,13 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925257" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28801546" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32925257" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -640,15 +622,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/DriverTest.java</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -669,9 +643,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -707,7 +679,7 @@
         <state relative-caret-position="3456">
           <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -806,45 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataGenTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DataGen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FileToArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#278#287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FileHeapSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FileInsertionSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1548">
@@ -866,34 +799,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FileInsertionSort_InsertionSort.h">
+    <entry file="file://$PROJECT_DIR$/FileToArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="69" />
+        <state relative-caret-position="147">
+          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#693#702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataGen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="9" column="28" lean-forward="true" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyInsertionSort.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="1860">
           <caret line="126" column="26" lean-forward="true" selection-start-line="126" selection-start-column="26" selection-end-line="126" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DataGenTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="13" column="24" lean-forward="true" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileInsertionSort_InsertionSort.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FileHeapSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-801">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1897#1898#0" expanded="true" />
+            <element signature="e#1926#1927#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="756">
+          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DriverTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+        <state relative-caret-position="162">
+          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
