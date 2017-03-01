@@ -6,10 +6,20 @@ import java.util.Arrays;
 public class DataSort {
 
     public static void main(String[] args) {
-        String inputFile = args[0];
-        String outputFile = args[1];
-        double pfail = Double.parseDouble(args[2]);
-        int timeout = Integer.parseInt(args[3]);
+        String inputFile;
+        String outputFile;
+        double pfail;
+        int timeout;
+        try {
+            inputFile = args[0];
+            outputFile = args[1];
+            pfail = Double.parseDouble(args[2]);
+            timeout = Integer.parseInt(args[3]);
+        } catch (Exception ex) {
+            usage();
+            return;
+        }
+
         FileHeapSort hs = new FileHeapSort(timeout, pfail);
         FileInsertionSort is = new FileInsertionSort(timeout, pfail);
         Driver d = new Driver(Arrays.asList(hs, is));
@@ -20,5 +30,9 @@ public class DataSort {
             return;
         }
         System.out.println("SUCCESS!");
+    }
+
+    private static void usage() {
+        System.out.println("Usage: DataSort [unsorted_file] [sorted_file] [p_memory_fail] [variant_timeout]");
     }
 }
