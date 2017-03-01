@@ -5,6 +5,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <time.h>
+#include <string.h>
+#include <errno.h>
 
 #include "FileInsertionSort_InsertionSort.h"
 
@@ -17,26 +19,27 @@ Returns number of ints read or -1 on failure.
 */
 int ReadInts(jint* buf, const char* path, unsigned int max)
 {
-    int i, j, scanned;
+    int i, j, scanned, err = 0;
     FILE *file;
     file = fopen(path, "r");
-    if (file == NULL) {
+    if (file == NULL)
         return -1;
-    }
+
+    clearerr(file);
     for (j = 0; j < max; j++) {
         scanned = fscanf(file, "%d\n", &i);
-        if (scanned == 0 || scanned == EOF) {
+        err = ferror(file);
+        if (scanned == 0) err = 1;
+        if (scanned == EOF || err) {
             break;
         }
         buf[j] = i;
     }
-    if (file != NULL) {
+
+    if (file != NULL)
         fclose(file);
-    }
-    if (!scanned || ferror(file)) {
-        return -1;
-    }
-    return j;
+
+    return err == 1 ? -1 : j;
 }
 
 // write ints to file, return -1 on failure otherwise it was a success
@@ -108,12 +111,16 @@ JNIEXPORT jint JNICALL Java_FileInsertionSort_00024InsertionSort_sort
 	const char *nativeUnsortedPath = (*env)->GetStringUTFChars(env, javaUnsortedPath, 0);
 	const char *nativeSortedPath = (*env)->GetStringUTFChars(env, javaSortedPath, 0);
 
+    errno = 0;
+
     len = CountLines(nativeUnsortedPath);
     if (len < 0)
         goto CLEANUP;
+
     nativeArray = malloc(len * sizeof(jint));
     if (nativeArray == NULL)
         goto CLEANUP;
+
     if (ReadInts(nativeArray, nativeUnsortedPath, len) == -1)
         goto CLEANUP;
 
@@ -142,6 +149,12 @@ JNIEXPORT jint JNICALL Java_FileInsertionSort_00024InsertionSort_sort
         (*env)->ReleaseStringUTFChars(env, javaSortedPath, nativeSortedPath);
     if (nativeArray != NULL)
         free(nativeArray);
+
+    if (errno) {
+        printf("errno: %s\n", strerror(errno));
+        fflush(stdout);
+    }
+
 	return result;
 }
 
