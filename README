@@ -1,0 +1,15 @@
+ECE 422 Project 1
+Elias Carter
+
+To make:
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+make
+
+To clean:
+make clean
+
+To run data generator:
+java DataGen [num_values] [output_path]
+
+To run data sorter:
+java DataSort [unsorted_file] [sorted_file] [p_memory_fail] [variant_timeout]
